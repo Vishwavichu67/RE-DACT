@@ -3,4 +3,4 @@ Werkzeug==2.2.2
 python-docx==0.8.11
 Pillow==9.1.0
 pytesseract==0.3.10
-PyMuPDF==1.19.6
+PyMuPDF==1.22.3
