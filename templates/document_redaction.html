@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Document Redaction</h1>
+<p>Upload a document (PDF or Word) to analyze and redact sensitive information.</p>
+
+<form method="POST" action="/document_redaction" enctype="multipart/form-data">
+  <input type="file" name="document" accept=".pdf,.doc,.docx" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+  <br><br>
+  <button type="submit" class="button">Redact Document</button>
+</form>
+
+{% if error %}
+<p style="color: red;">{{ error }}</p>
+{% endif %}
+
+{% if redacted_document_url %}
+<h2>Download Redacted Document:</h2>
+<a href="{{ redacted_document_url }}" class="button" download>Download</a>
+{% endif %}
+{% endblock %}

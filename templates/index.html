@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome to RE-DACT</h1>
+<p>
+  RE-DACT is your ultimate privacy tool for removing sensitive information from text, images, and documents. Protect your data with the power of cutting-edge redaction.
+</p>
+<div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+  <a href="{{ url_for('text_redaction') }}" class="button">Text Redaction</a>
+  <a href="{{ url_for('image_redaction') }}" class="button">Image Redaction</a>
+  <a href="{{ url_for('document_redaction') }}" class="button">Document Redaction</a>
+</div>
+{% endblock %}

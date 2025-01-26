@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Text Redaction</h1>
+    <p>Enter your text below and select a redaction level to redact sensitive information.</p>
+
+    <form method="POST">
+        <label for="text_content">Enter Text:</label>
+        <textarea id="text_content" name="text_content" placeholder="Type or paste your text here..." rows="6" style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #ccc;" required></textarea>
+        
+        <br><br>
+        
+        <label for="redaction_level">Redaction Level:</label>
+        <select id="redaction_level" name="redaction_level" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;" required>
+            <option value="low">Low</option>
+            <option value="moderate">Moderate</option>
+            <option value="high">High</option>
+        </select>
+        
+        <br><br>
+        
+        <button type="submit" class="button">Redact Text</button>
+    </form>
+
+    {% if error %}
+    <p style="color: red; margin-top: 10px;">{{ error }}</p>
+    {% endif %}
+
+    {% if original_content and redacted_content %}
+    <div style="margin-top: 30px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background-color: #a0a5a3;">
+        <h2 class="original-content">Original Content:</h2>
+        <p class="original-content" style="white-space: pre-wrap;">{{ original_content }}</p>
+    
+        <h2 class="redacted-content">Redacted Content:</h2>
+        <p class="redacted-content" style="white-space: pre-wrap; font-weight: bold;">{{ redacted_content }}</p>
+    </div>
+    {% endif %}
+    
+</div>
+{% endblock %}

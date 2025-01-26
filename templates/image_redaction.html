@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Image Redaction</h1>
+<p>Upload an image to redact sensitive information.</p>
+
+<form method="POST" action="/image_redaction" enctype="multipart/form-data">
+  <input type="file" name="image" accept="image/*" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+  <br><br>
+  <label for="redaction_level">Choose Redaction Level:</label>
+  <select name="redaction_level" id="redaction_level" style="padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
+    <option value="black">Blackout</option>
+    <option value="blur">Blur</option>
+    <option value="ocr">OCR</option>
+  </select>
+  <br><br>
+  <button type="submit" class="button">Redact Image</button>
+</form>
+
+{% if error %}
+<p style="color: red;">{{ error }}</p>
+{% endif %}
+
+{% if redacted_image_url %}
+<h2>Redacted Image:</h2>
+<img src="{{ redacted_image_url }}" alt="Redacted Image" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 10px;">
+{% endif %}
+{% endblock %}
