@@ -332,3 +332,7 @@ def about():
 
 if __name__ == '__main__':
     app.run(debug=True)
+     # Get the PORT from the environment or default to 5000
+    port = int(os.environ.get("PORT", 5000))
+    # Bind to 0.0.0.0 to make the app accessible publicly
+    app.run(host="0.0.0.0", port=port)
