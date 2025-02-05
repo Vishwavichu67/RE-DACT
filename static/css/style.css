@@ -120,3 +120,88 @@ body {
 .dark-mode .original-content, .dark-mode .redacted-content {
   color: #fff; /* Ensure text is white in dark mode */
 }
+/* Make forms and buttons adjust properly */
+form {
+    width: 100%;
+    max-width: 600px; /* Limits form size on large screens */
+    margin: auto;
+}
+
+/* Ensure text areas and inputs are full width on small screens */
+textarea, select, input {
+    width: 100%;
+    max-width: 100%;
+    font-size: 16px; /* Improve readability on mobile */
+}
+
+/* Improve button size for mobile */
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Center content on all screen sizes */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Adjust top bar for small screens */
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 10px;
+}
+
+.navbar a {
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Make the content area fit smaller screens */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    h1, h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}
+
+/* Special fix for very small screens (phones under 400px wide) */
+@media (max-width: 400px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+}
