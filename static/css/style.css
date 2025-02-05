@@ -1,189 +1,182 @@
 /* Theme Colors */
 :root {
-    --light-bg: #ffffff;
-    --light-text: #333333;
-    --light-navbar: #4caf50;
-    --light-content-bg: #f2f2f2;
+  --light-bg: #b5f0cd;
+  --light-text: #e5adad;
+  --light-navbar: #1f4520;
+  --light-content-bg: #c6a4a4;
 
-    --dark-bg: #1a1a1a;
-    --dark-text: #f5f5f5;
-    --dark-navbar: #444444;
-    --dark-content-bg: #2c2c2c;
+  --dark-bg: #1a1a1a;
+  --dark-text: #f5f5f5;
+  --dark-navbar: #444444;
+  --dark-content-bg: #2c2c2c;
 
-    --primary-color: #007bff;
-    --button-hover: #0056b3;
+  --primary-color: #d0b3c7;
+  --button-hover: #a9bbcf;
 }
 
 /* General Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin: 0;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
 }
 
 /* Light Theme */
 body.light {
-    background-color: var(--light-bg);
-    color: var(--light-text);
+  background-color: var(--light-bg);
+  color: var(--light-text);
 }
 
 /* Dark Theme */
 body.dark {
-    background-color: var(--dark-bg);
-    color: var(--dark-text);
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
 }
 
-/* Navbar Styling */
+/* Navbar */
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: var(--dark-navbar);
-    color: var(--dark-text);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--dark-navbar);
+  color: var(--dark-text);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.light .navbar {
-    background-color: var(--light-navbar);
+  background-color: var(--light-navbar);
 }
 
 .navbar .brand a {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-decoration: none;
-    color: var(--dark-text);
-    transition: color 0.3s ease;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--dark-text);
+  transition: color 0.3s ease;
 }
 
 body.light .navbar .brand a {
-    color: var(--light-text);
+  color: var(--light-text);
 }
 
 .nav-links {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: var(--dark-text);
-    font-size: 1rem;
-    transition: color 0.3s ease;
+  text-decoration: none;
+  color: var(--dark-text);
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
 body.light .nav-links a {
-    color: var(--light-text);
+  color: var(--light-text);
 }
 
 .nav-links a:hover {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
-/* Theme Toggle Button */
+/* Theme Button */
 .theme-button {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--dark-text);
-    transition: transform 0.2s ease-in-out, color 0.3s ease;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--dark-text);
+  transition: transform 0.2s ease-in-out, color 0.3s ease;
 }
 
 body.light .theme-button {
-    color: var(--light-text);
+  color: var(--light-text);
 }
 
 .theme-button:active {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
-/* Main Content Styling */
+/* Main Content */
 .main-content {
-    padding: 2rem;
-    margin: 2rem auto 0 auto;
-    max-width: 800px;
-    background-color: var(--dark-content-bg);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
+  padding: 2rem;
+  margin: 2rem auto 0 auto;
+  max-width: 800px;
+  background-color: var(--dark-content-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
 }
 
 body.light .main-content {
-    background-color: var(--light-content-bg);
+  background-color: var(--light-content-bg);
 }
 
 /* Buttons */
 button {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border: none;
-    padding: 0.7rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
 }
 
 button:hover {
-    background-color: var(--button-hover);
-    transform: scale(1.05);
+  background-color: var(--button-hover);
+  transform: scale(1.05);
 }
 
 /* Inputs */
 input[type="file"] {
-    display: block;
-    margin-bottom: 1rem;
+  display: block;
+  margin-bottom: 1rem;
+  color: inherit;
 }
 
-/* Responsive Styling */
+/* Responsive */
 @media (max-width: 768px) {
-    .navbar {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-    }
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
 
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
 
-    .main-content {
-        padding: 1.5rem;
-        width: 90%;
-    }
-
-    button {
-        font-size: 0.9rem;
-    }
+  .main-content {
+    padding: 1.5rem;
+    width: 90%;
+  }
+}
+/* Optional: Additional styling for buttons */
+.button-group .btn {
+  margin: 0.5rem; /* Add spacing between buttons */
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.8rem 1.5rem; /* Larger padding for better UI */
+  border-radius: 8px; /* Rounded corners */
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-@media (max-width: 400px) {
-    .navbar .brand a {
-        font-size: 1.2rem;
-    }
-
-    .nav-links a {
-        font-size: 0.9rem;
-    }
-
-    .theme-button {
-        font-size: 1.2rem;
-    }
-
-    button {
-        padding: 0.5rem 1rem;
-        font-size: 0.8rem;
-    }
+.button-group .btn:hover {
+  transform: scale(1.05); /* Subtle zoom effect on hover */
+  background-color: var(--button-hover); /* Use your custom hover color */
+  color: hsl(299, 44%, 72%); /* Ensure text is readable */
 }
