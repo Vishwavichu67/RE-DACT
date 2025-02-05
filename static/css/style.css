@@ -1,4 +1,4 @@
-/* :root Variables for Themes */
+/* Theme Colors */
 :root {
     --light-bg: #ffffff;
     --light-text: #333333;
@@ -11,26 +11,35 @@
     --dark-content-bg: #2c2c2c;
 
     --primary-color: #007bff;
+    --button-hover: #0056b3;
 }
 
-/* Body Styling */
-body {
+/* General Reset */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
     transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 0;
 }
 
+/* Light Theme */
 body.light {
     background-color: var(--light-bg);
     color: var(--light-text);
 }
 
+/* Dark Theme */
 body.dark {
     background-color: var(--dark-bg);
     color: var(--dark-text);
 }
 
-/* Navbar */
+/* Navbar Styling */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -41,18 +50,34 @@ body.dark {
     position: sticky;
     top: 0;
     z-index: 1000;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.light .navbar {
     background-color: var(--light-navbar);
 }
 
-/* Navbar Links */
+.navbar .brand a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--dark-text);
+    transition: color 0.3s ease;
+}
+
+body.light .navbar .brand a {
+    color: var(--light-text);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
 .nav-links a {
     text-decoration: none;
-    margin: 0 10px;
     color: var(--dark-text);
+    font-size: 1rem;
     transition: color 0.3s ease;
 }
 
@@ -71,7 +96,7 @@ body.light .nav-links a {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--dark-text);
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, color 0.3s ease;
 }
 
 body.light .theme-button {
@@ -82,10 +107,10 @@ body.light .theme-button {
     transform: scale(1.2);
 }
 
-/* Main Content */
+/* Main Content Styling */
 .main-content {
     padding: 2rem;
-    margin: 2rem auto 0 auto; /* Removed Footer, Adjust Margin */
+    margin: 2rem auto 0 auto;
     max-width: 800px;
     background-color: var(--dark-content-bg);
     border-radius: 10px;
@@ -96,3 +121,54 @@ body.light .theme-button {
 body.light .main-content {
     background-color: var(--light-content-bg);
 }
+
+/* Buttons */
+button {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+    transform: scale(1.05);
+}
+
+/* Inputs */
+input[type="file"] {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .main-content {
+        padding: 1.5rem;
+        width: 90%;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .navbar .brand a {
+        fon
