@@ -1,122 +1,189 @@
+/* Theme Colors */
 :root {
-    /* Light Theme Colors */
-    --light-bg: #ffffff;
-    --light-content-bg: #f2f2f2;
-    --light-text: #333333;
-    --light-navbar: #4caf50;
-  
-    /* Dark Theme Colors */
-    --dark-bg: #1a1a1a;
-    --dark-content-bg: #2c2c2c;
-    --dark-text: #f5f5f5;
-    --dark-navbar: #444444;
-  
-    /* Shared Colors */
-    --primary-color: #4caf50;
-    --secondary-color: #ffffff;
-    --button-color: #007bff;
-    --button-text: #ffffff;
-  }
-  
-  body.light {
-    background-color: var(--light-bg);
-    color: var(--light-text);
-  }
-  
-  body.light .navbar {
-    background-color: var(--light-navbar);
-  }
-  
-  body.light .main-content {
-    background-color: var(--light-content-bg);
-  }
-  
-  body.dark {
-    background-color: var(--dark-bg);
-    color: var(--dark-text);
-  }
-  
-  body.dark .navbar {
-    background-color: var(--dark-navbar);
-  }
-  
-  body.dark .main-content {
-    background-color: var(--dark-content-bg);
-  }
-  
-  .navbar {
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .navbar a {
-    text-decoration: none;
-    margin: 0 10px;
-    color: var(--secondary-color);
-  }
-  
-  .navbar a:hover {
-    text-decoration: underline;
-  }
-  
-  .navbar .theme-toggle {
-    cursor: pointer;
-    background-color: var(--button-color);
-    color: var(--button-text);
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 1rem;
-  }
-  
-  .main-content {
-    margin: 2rem auto;
-    padding: 2rem;
-    border-radius: 8px;
-  }
-  
-  .button {
-    background-color: var(--button-color);
-    color: var(--button-text);
-    padding: 0.7rem 1.5rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    display: inline-block;
-  }
-  
-  .button:hover {
-    background-color: darken(var(--button-color), 10%);
-  }
-  
-  footer {
-    text-align: center;
-    padding: 1rem 0;
-    background-color: var(--light-navbar);
-    color: var(--secondary-color);
-  }
-  /* General light mode styling */
+  --light-bg: #ffffff;
+  --light-text: #333333;
+  --light-navbar: #4caf50;
+  --light-content-bg: #f2f2f2;
+
+  --dark-bg: #1a1a1a;
+  --dark-text: #f5f5f5;
+  --dark-navbar: #444444;
+  --dark-content-bg: #2c2c2c;
+
+  --primary-color: #007bff;
+  --button-hover: #0056b3;
+}
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  color: #333; /* Default text color for light mode */
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
 }
 
-.dark-mode {
-  background-color: #333; /* Dark background for dark mode */
-  color: #fff; /* Default text color for dark mode */
+/* Light Theme */
+body.light {
+  background-color: var(--light-bg);
+  color: var(--light-text);
 }
 
-/* Ensure visibility of the original and redacted content in both modes */
-.original-content, .redacted-content {
-  color: inherit; /* Inherit the text color from the body */
+/* Dark Theme */
+body.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
 }
 
-/* Specific override for dark mode */
-.dark-mode .original-content, .dark-mode .redacted-content {
-  color: #fff; /* Ensure text is white in dark mode */
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--dark-navbar);
+  color: var(--dark-text);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light .navbar {
+  background-color: var(--light-navbar);
+}
+
+.navbar .brand a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--dark-text);
+  transition: color 0.3s ease;
+}
+
+body.light .navbar .brand a {
+  color: var(--light-text);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--dark-text);
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+body.light .nav-links a {
+  color: var(--light-text);
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Theme Toggle Button */
+.theme-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--dark-text);
+  transition: transform 0.2s ease-in-out, color 0.3s ease;
+}
+
+body.light .theme-button {
+  color: var(--light-text);
+}
+
+.theme-button:active {
+  transform: scale(1.2);
+}
+
+/* Main Content Styling */
+.main-content {
+  padding: 2rem;
+  margin: 2rem auto 0 auto;
+  max-width: 800px;
+  background-color: var(--dark-content-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+body.light .main-content {
+  background-color: var(--light-content-bg);
+}
+
+/* Buttons */
+button {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.05);
+}
+
+/* Inputs */
+input[type="file"] {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .navbar {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+  }
+
+  .nav-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+  }
+
+  .main-content {
+      padding: 1.5rem;
+      width: 90%;
+  }
+
+  button {
+      font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar .brand a {
+      font-size: 1.2rem;
+  }
+
+  .nav-links a {
+      font-size: 0.9rem;
+  }
+
+  .theme-button {
+      font-size: 1.2rem;
+  }
+
+  button {
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+  }
 }
