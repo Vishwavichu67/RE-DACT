@@ -69,20 +69,7 @@
     color: #ddd;
 }
 
-/* Responsive navbar adjustments */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem;
-    }
 
-    .navbar a {
-        margin: 10px 0;
-    }
-}
-
-  
   .navbar .theme-toggle {
     cursor: pointer;
     background-color: var(--button-color);
@@ -182,7 +169,18 @@ button {
     padding: 10px;
     font-size: 16px;
 }
+/* Responsive navbar adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
 
+    .navbar a {
+        margin: 10px 0;
+    }
+} 
 /* Make the content area fit smaller screens */
 @media (max-width: 768px) {
     .container {
