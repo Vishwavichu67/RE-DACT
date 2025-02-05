@@ -331,15 +331,8 @@ def about():
 
 
 if __name__ == '__main__':
-<<<<<<< HEAD
-     # Get the PORT from the environment or default to 5000
-    port = int(os.environ.get("PORT", 5000))
-    # Bind to 0.0.0.0 to make the app accessible publicly
-    app.run(host="0.0.0.0", port=port)
-=======
 
      # Get the port from the environment variable or default to 5000
     port = int(os.environ.get("PORT", 5000))
     # Bind to 0.0.0.0 to allow external access
     app.run(host="0.0.0.0", port=port)
->>>>>>> 1f083fa5 (Fix: Bind Flask to 0.0.0.0 and use PORT from env)

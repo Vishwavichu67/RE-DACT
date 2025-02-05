@@ -3,14 +3,14 @@
   --light-bg: #b5f0cd;
   --light-text: #e5adad;
   --light-navbar: #1f4520;
-  --light-content-bg: #c6a4a4;
+  --light-content-bg: #71e486;
 
   --dark-bg: #1a1a1a;
   --dark-text: #f5f5f5;
   --dark-navbar: #444444;
   --dark-content-bg: #2c2c2c;
 
-  --primary-color: #d0b3c7;
+  --primary-color: #7a9bb0;
   --button-hover: #a9bbcf;
 }
 
@@ -157,7 +157,8 @@ input[type="file"] {
   .nav-links {
     flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: space-between;
+    gap: 1rem;
   }
 
   .main-content {
@@ -178,5 +179,5 @@ input[type="file"] {
 .button-group .btn:hover {
   transform: scale(1.05); /* Subtle zoom effect on hover */
   background-color: var(--button-hover); /* Use your custom hover color */
-  color: #fff; /* Ensure text is readable */
+  color: hsl(299, 44%, 72%); /* Ensure text is readable */
 }
