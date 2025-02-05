@@ -1,27 +1,28 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const themeToggle = document.getElementById("theme-toggle");
-    const themeIcon = document.getElementById("theme-icon");
-    const body = document.body;
+// Select the toggle button
+const toggleThemeButton = document.querySelector(".theme-toggle");
 
-    // Check user preference in localStorage
-    if (localStorage.getItem("theme") === "dark") {
-        body.classList.add("dark-mode");
-        themeIcon.textContent = "☀️"; // Sun for Light Mode
-    } else {
-        body.classList.remove("dark-mode");
-        themeIcon.textContent = "🌙"; // Moon for Dark Mode
-    }
+// Check and apply the saved theme from localStorage
+const savedTheme = localStorage.getItem("theme") || "light";
+document.body.classList.add(savedTheme);
+updateThemeIcon(savedTheme);
 
-    // Toggle theme when button is clicked
-    themeToggle.addEventListener("click", function () {
-        if (body.classList.contains("dark-mode")) {
-            body.classList.remove("dark-mode");
-            localStorage.setItem("theme", "light");
-            themeIcon.textContent = "🌙"; // Show Moon when switching to Light Mode
-        } else {
-            body.classList.add("dark-mode");
-            localStorage.setItem("theme", "dark");
-            themeIcon.textContent = "☀️"; // Show Sun when switching to Dark Mode
-        }
-    });
+// Toggle theme on button click
+toggleThemeButton.addEventListener("click", () => {
+    const currentTheme = document.body.classList.contains("dark") ? "dark" : "light";
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+    // Update the theme
+    document.body.classList.remove(currentTheme);
+    document.body.classList.add(newTheme);
+
+    // Save the theme in localStorage
+    localStorage.setItem("theme", newTheme);
+
+    // Update the toggle button icon
+    updateThemeIcon(newTheme);
 });
+
+// Function to update the theme toggle button icon
+function updateThemeIcon(theme) {
+    toggleThemeButton.textContent = theme === "dark" ? "🌙" : "☀️";
+}
