@@ -181,3 +181,26 @@ input[type="file"] {
   background-color: var(--button-hover); /* Use your custom hover color */
   color: hsl(299, 44%, 72%); /* Ensure text is readable */
 }
+/* Mobile Menu Hidden */
+#mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--dark-content-bg);
+  padding: 1rem;
+  position: absolute;
+  top: 60px; /* Adjust based on navbar height */
+  right: 0;
+  z-index: 1000;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body.light #mobile-menu {
+  background-color: var(--light-content-bg);
+}
+
+/* When visible */
+#mobile-menu.active {
+  display: flex;
+}
