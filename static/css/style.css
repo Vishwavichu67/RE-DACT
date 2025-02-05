@@ -171,4 +171,19 @@ input[type="file"] {
 
 @media (max-width: 400px) {
     .navbar .brand a {
-        fon
+        font-size: 1.2rem;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .theme-button {
+        font-size: 1.2rem;
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
