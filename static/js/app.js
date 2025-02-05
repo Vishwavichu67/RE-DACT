@@ -1,28 +1,31 @@
-// Select the toggle button
-const toggleThemeButton = document.querySelector(".theme-toggle");
+// Select theme toggle button
+const themeToggleButton = document.querySelector(".theme-button");
+const themeIcon = document.getElementById("theme-icon");
 
-// Check and apply the saved theme from localStorage
+// Initialize theme from localStorage or default to light
 const savedTheme = localStorage.getItem("theme") || "light";
 document.body.classList.add(savedTheme);
 updateThemeIcon(savedTheme);
 
-// Toggle theme on button click
-toggleThemeButton.addEventListener("click", () => {
+// Event listener for theme toggle
+themeToggleButton.addEventListener("click", () => {
     const currentTheme = document.body.classList.contains("dark") ? "dark" : "light";
     const newTheme = currentTheme === "dark" ? "light" : "dark";
 
-    // Update the theme
+    // Switch theme
     document.body.classList.remove(currentTheme);
     document.body.classList.add(newTheme);
 
-    // Save the theme in localStorage
+    // Save theme in localStorage
     localStorage.setItem("theme", newTheme);
 
-    // Update the toggle button icon
+    // Update theme icon
     updateThemeIcon(newTheme);
 });
 
-// Function to update the theme toggle button icon
+// Function to update the theme icon
 function updateThemeIcon(theme) {
-    toggleThemeButton.textContent = theme === "dark" ? "🌙" : "☀️";
+    if (themeIcon) {
+        themeIcon.textContent = theme === "dark" ? "☀️" : "🌙";
+    }
 }
