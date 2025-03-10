@@ -32,3 +32,6 @@ function applyTheme(theme) {
 function updateThemeIcon(theme) {
     themeIcon.textContent = theme === "dark" ? "☀️" : "🌙";
 }
+document.querySelector('.hamburger').addEventListener('click', function () {
+    document.querySelector('.nav-links').classList.toggle('active');
+  });

@@ -1,18 +1,20 @@
 /* Theme Colors */
 :root {
-  --light-bg: #b5f0cd;
-  --light-text: #e5adad;
-  --light-navbar: #1f4520;
-  --light-content-bg: #71e486;
-
-  --dark-bg: #1a1a1a;
-  --dark-text: #f5f5f5;
-  --dark-navbar: #444444;
-  --dark-content-bg: #2c2c2c;
-
-  --primary-color: #7a9bb0;
-  --button-hover: #a9bbcf;
+  --light-bg: #f4f7fa; /* Soft off-white for light theme */
+  --light-text: #000000; /* Dark text for readability */
+  --light-navbar: #1d2d50; /* Dark Royal Blue navbar */
+  --light-content-bg: #ffffff; /* White content background for clean look */
+  
+  --dark-bg: #0f0f0f; /* Dark, near-black background */
+  --dark-text: #e3e3e3; /* Light text with greyish touch */
+  --dark-navbar: #2c2f38; /* Dark grey navbar with slightly muted tone */
+  --dark-content-bg: #353b48; /* Darker content background */
+  
+  --primary-color: #ff6f61; /* Futuristic, bright coral */
+  --button-hover: #ff3b30; /* Hover effect with darker shade */
+  --highlight-color: #00bfae; /* Teal highlight color */
 }
+
 
 /* General Reset */
 * {
@@ -22,9 +24,10 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Orbitron', sans-serif; /* Futuristic font */
   transition: background-color 0.3s ease, color 0.3s ease;
   margin: 0;
+  background-color: var(--dark-bg);
 }
 
 /* Light Theme */
@@ -51,52 +54,91 @@ body.dark {
   top: 0;
   z-index: 1000;
   transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Adding a subtle shadow for a floating effect */
+  animation: navbarSlide 1s ease-out; /* Smooth navbar animation */
 }
 
 body.light .navbar {
   background-color: var(--light-navbar);
+  box-shadow: 0px 5px 15px rgba(76, 175, 80, 0.5); /* Subtle green shadow */
 }
 
-.navbar .brand a {
+@keyframes navbarSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar .navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.navbar .navbar-brand {
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
   color: var(--dark-text);
   transition: color 0.3s ease;
+  letter-spacing: 2px;
 }
 
-body.light .navbar .brand a {
+body.light .navbar .navbar-brand {
   color: var(--light-text);
 }
 
 .nav-links {
   display: flex;
+  flex-direction: row;
   gap: 1rem;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+.nav-links li {
+  list-style: none;
 }
 
 .nav-links a {
   text-decoration: none;
   color: var(--dark-text);
   font-size: 1rem;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 body.light .nav-links a {
-  color: var(--light-text);
+  color: var(--dark-text);
 }
 
 .nav-links a:hover {
-  color: var(--primary-color);
+  color: var(--highlight-color);
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+body.light .nav-links a:hover {
+  color: var(--highlight-color);
 }
 
 /* Theme Button */
 .theme-button {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   cursor: pointer;
   color: var(--dark-text);
-  transition: transform 0.2s ease-in-out, color 0.3s ease;
+  transition: transform 0.2s ease-in-out, color 0.3s ease, box-shadow 0.3s ease;
+  margin-left: 1rem;
 }
 
 body.light .theme-button {
@@ -104,18 +146,110 @@ body.light .theme-button {
 }
 
 .theme-button:active {
-  transform: scale(1.2);
+  transform: scale(0.70);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Glow effect when clicked */
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--dark-text);
+  cursor: pointer;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+
+  .navbar .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: var(--dark-content-bg);
+    position: static;
+    width: 100%;
+    text-align: left;
+    padding: 0;
+    margin-top: 0.5rem;
+  }
+
+  .nav-links.active {
+    display: flex;
+    animation: fadeIn 0.5s ease;
+  }
+
+  .hamburger {
+    display: block;
+    margin-left: 0;
+  }
+  body.light .nav-links {
+    background: var(--light-content-bg); /* Light background for the menu in light mode */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Optional: subtle shadow if you want */
+}
+
+body.light .nav-links a {
+    color: var(--light-text); /* Dark text for links in light mode menu */
+}
+
+body.light .nav-links li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Darker separator line in light mode */
+}
+    /* Button Group in Mobile View */
+    .button-group {
+      flex-direction: column; /* Stack buttons vertically in mobile */
+      gap: 1rem; /* Adjust vertical spacing between buttons */
+      margin-top: 1.5rem; /* Slightly reduce top margin */
+      width: 100%; /* Make button group full width */
+      align-items: center; /* Center align buttons within the group */
+  }
+
+  .button-group .btn {
+      width: 100%; /* Make buttons full width of the button group */
+      max-width: 300px; /* Optionally set a max width for buttons */
+      padding: 0.9rem 2rem; /* Adjust vertical padding if needed */
+      font-size: 1.1rem; /* Keep font size consistent or adjust if needed */
+  }
 }
 
 /* Main Content */
 .main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 2rem;
-  margin: 2rem auto 0 auto;
+  margin: 2rem auto;
   max-width: 800px;
   background-color: var(--dark-content-bg);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
+  animation: fadeIn 1s ease-in-out;
 }
 
 body.light .main-content {
@@ -127,16 +261,17 @@ button {
   background-color: var(--primary-color);
   color: #ffffff;
   border: none;
-  padding: 0.7rem 1.5rem;
-  font-size: 1rem;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  transition: background-color 0.3s ease, transform 0.3s ease-in-out, box-shadow 0.3s ease;
 }
 
 button:hover {
   background-color: var(--button-hover);
   transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Add a futuristic shadow effect */
 }
 
 /* Inputs */
@@ -146,38 +281,30 @@ input[type="file"] {
   color: inherit;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .navbar {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  .main-content {
-    padding: 1.5rem;
-    width: 90%;
-  }
+/* Button Group */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
-/* Optional: Additional styling for buttons */
+
 .button-group .btn {
-  margin: 0.5rem; /* Add spacing between buttons */
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 0.8rem 1.5rem; /* Larger padding for better UI */
-  border-radius: 8px; /* Rounded corners */
-  transition: transform 0.2s ease, background-color 0.3s ease;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease-in-out;
 }
 
 .button-group .btn:hover {
-  transform: scale(1.05); /* Subtle zoom effect on hover */
-  background-color: var(--button-hover); /* Use your custom hover color */
-  color: hsl(299, 44%, 72%); /* Ensure text is readable */
+  background-color: var(--button-hover);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Hover shadow for buttons */
 }
