@@ -1,18 +1,20 @@
 /* Theme Colors */
 :root {
-  --light-bg: #f4f7fa; /* Soft off-white for light theme */
-  --light-text: #000000; /* Dark text for readability */
-  --light-navbar: #1d2d50; /* Dark Royal Blue navbar */
-  --light-content-bg: #ffffff; /* White content background for clean look */
+    --light-bg: #f5f5f5;
+    --light-text: #e3e3e3 ;
+    --light-navbar: #24344d;
+    --light-content-bg: #ffffff;
+    --light-hover: #333333;
+    
+    --dark-bg: #0d1117;
+    --dark-text: #e3e3e3;
+    --dark-navbar: #161b22;
+    --dark-content-bg: #21262d;
+    --dark-hover: #58a6ff;
   
-  --dark-bg: #0f0f0f; /* Dark, near-black background */
-  --dark-text: #e3e3e3; /* Light text with greyish touch */
-  --dark-navbar: #2c2f38; /* Dark grey navbar with slightly muted tone */
-  --dark-content-bg: #353b48; /* Darker content background */
-  
-  --primary-color: #ff6f61; /* Futuristic, bright coral */
-  --button-hover: #ff3b30; /* Hover effect with darker shade */
-  --highlight-color: #00bfae; /* Teal highlight color */
+    --primary-color: #ff6f61;
+    --highlight-color: #00f2ff;
+    --button-hover: #ff3b30;
 }
 
 
@@ -307,4 +309,143 @@ input[type="file"] {
   background-color: var(--button-hover);
   transform: scale(1.05);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Hover shadow for buttons */
+}
+/* Container Styling */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  background: var(--dark-content-bg);
+  box-shadow: 0 0 10px var(--glow-color);
+  border-radius: 12px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Headings */
+h1, h2 {
+  color: var(--primary-color);
+  text-transform: uppercase;
+  text-shadow: 0 0 10px var(--glow-color);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 1.8em;
+  margin-top: 20px;
+}
+
+/* Paragraphs */
+p {
+  font-size: 1.1em;
+  color: var(--dark-text);
+  opacity: 0.9;
+}
+
+/* Social Icons */
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin: 0 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+  filter: drop-shadow(0px 0px 5px var(--highlight-color));
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Creator Section */
+.creators {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  box-shadow: 0 0 5px var(--glow-color);
+}
+
+.creator {
+  margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9em;
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  box-shadow: 0 0 5px var(--glow-color);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  .social-icons img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .creator {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+
+  .social-icons img {
+    width: 20px;
+    height: 20px;
+  }
 }
